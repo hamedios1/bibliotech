@@ -3,14 +3,18 @@
 @section('content')
     <h1>Modifier un genre</h1>
 
-    <form method="POST" action="{{ route('genres.update', $genre) }}">
-        @csrf
-        @method('PUT')
+    <div class="form-card">
+        <form method="POST" action="{{ route('genres.update', $genre) }}">
+            @csrf
+            @method('PUT')
 
-        <label>Nom</label>
-        <input type="text" name="nom" value="{{ old('nom', $genre->nom) }}">
-        @error('nom') <span>{{ $message }}</span> @enderror
+            <div class="field">
+                <label>Nom</label>
+                <input type="text" name="nom" value="{{ old('nom', $genre->nom) }}">
+                @error('nom') <span class="field-error">{{ $message }}</span> @enderror
+            </div>
 
-        <button type="submit">Modifier</button>
-    </form>
+            <button type="submit" class="btn-submit">Modifier</button>
+        </form>
+    </div>
 @endsection

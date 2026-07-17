@@ -1,0 +1,281 @@
+:root {
+    --bg: #1C2B22;
+    --surface: #F5EFE1;
+    --ink: #241C15;
+    --ink-soft: #5A5040;
+    --accent: #A9773F;
+    --accent-soft: #D8CBAE;
+    --line: #3E4F41;
+    --error: #8C3B3B;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--surface);
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- En-tête / navigation --- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand {
+    font-family: 'Lora', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--surface);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+}
+
+.site-nav {
+    display: flex;
+    gap: 4px;
+}
+
+.site-nav a {
+    color: var(--accent-soft);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid transparent;
+    border-bottom: none;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.site-nav a:hover {
+    color: var(--surface);
+}
+
+.site-nav a.is-active {
+    background: var(--surface);
+    color: var(--ink);
+    border-color: var(--line);
+}
+
+/* --- Contenu --- */
+.page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.page h1 {
+    font-family: 'Lora', serif;
+    font-size: 32px;
+    color: var(--surface);
+    margin-bottom: 24px;
+}
+
+.page h2 {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    color: var(--surface);
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+}
+
+.flash {
+    background: var(--accent-soft);
+    color: var(--ink);
+    padding: 12px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--accent);
+}
+
+/* --- Liens d'action --- */
+.btn-link {
+    display: inline-block;
+    color: var(--bg);
+    background: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    transition: background 0.15s ease;
+}
+
+.btn-link:hover { background: var(--accent-soft); }
+
+/* --- Cartes (livres, auteurs, genres) --- */
+.card-list {
+    display: grid;
+    gap: 12px;
+}
+
+.card {
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 8px;
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.1s ease;
+}
+
+.card:hover { transform: translateX(2px); }
+
+.card-title {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+}
+
+.card-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+}
+
+.empty-state {
+    color: var(--accent-soft);
+    font-style: italic;
+    padding: 24px 0;
+}
+
+/* --- Badge d'état du livre --- */
+.badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+.badge-neuf { background: #2E5339; color: #C9E4CE; }
+.badge-bon { background: #4A4020; color: #E8D9A0; }
+.badge-abime { background: var(--error); color: #F2D9D9; }
+
+/* --- Formulaires --- */
+.form-card {
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 8px;
+    padding: 32px;
+}
+
+.field { margin-bottom: 20px; }
+
+.field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #D8CBAE;
+    border-radius: 6px;
+    background: #FFFDF8;
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.field textarea { min-height: 100px; resize: vertical; }
+
+.field-error {
+    color: var(--error);
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: none;
+    background: #EFE6D3;
+    padding: 6px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background: var(--ink);
+    color: var(--surface);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-submit:hover { background: #3A2E1F; }
+
+.btn-danger {
+    background: transparent;
+    color: var(--error);
+    border: 1px solid var(--error);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* --- Fiche de prêt (signature visuelle) --- */
+.loan-card {
+    background: var(--surface);
+    color: var(--ink);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+    border-left: 3px dashed var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loan-stamp {
+    font-family: 'Lora', serif;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 4px 10px;
+    border: 1.5px solid var(--ink);
+    border-radius: 3px;
+    transform: rotate(-3deg);
+}
+
+.loan-stamp.is-returned { color: var(--ink-soft); border-color: var(--ink-soft); }
+.loan-stamp.is-active { color: var(--accent); border-color: var(--accent); }

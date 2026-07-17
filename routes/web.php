@@ -6,11 +6,17 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LoanController;
 
+Route::get('/', fn () => redirect()->route('books.index'));
+
 // Filtre : tous les livres d'un genre donné
 Route::get('/genres/{genre}/books', [GenreController::class, 'books'])->name('genres.books');
 
 // Enregistrer un nouvel emprunt pour un livre
 Route::post('/books/{book}/loans', [LoanController::class, 'store'])->name('loans.store');
+
+// routes/web.php
+
+Route::patch('/loans/{loan}/return', [LoanController::class, 'markReturned'])->name('loans.return');
 
 Route::resource('books', BookController::class);
 Route::resource('authors', AuthorController::class);

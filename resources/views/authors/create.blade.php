@@ -3,21 +3,29 @@
 @section('content')
     <h1>Ajouter un auteur</h1>
 
-    <form method="POST" action="{{ route('authors.store') }}">
-        @csrf
+    <div class="form-card">
+        <form method="POST" action="{{ route('authors.store') }}">
+            @csrf
 
-        <label>Nom</label>
-        <input type="text" name="nom" value="{{ old('nom') }}">
-        @error('nom') <span>{{ $message }}</span> @enderror
+            <div class="field">
+                <label>Nom</label>
+                <input type="text" name="nom" value="{{ old('nom') }}">
+                @error('nom') <span class="field-error">{{ $message }}</span> @enderror
+            </div>
 
-        <label>Nationalité</label>
-        <input type="text" name="nationalite" value="{{ old('nationalite') }}">
-        @error('nationalite') <span>{{ $message }}</span> @enderror
+            <div class="field">
+                <label>Nationalité</label>
+                <input type="text" name="nationalite" value="{{ old('nationalite') }}">
+                @error('nationalite') <span class="field-error">{{ $message }}</span> @enderror
+            </div>
 
-        <label>Année de naissance</label>
-        <input type="number" name="annee_naissance" value="{{ old('annee_naissance') }}">
-        @error('annee_naissance') <span>{{ $message }}</span> @enderror
+            <div class="field">
+                <label>Année de naissance</label>
+                <input type="number" name="annee_naissance" value="{{ old('annee_naissance') }}">
+                @error('annee_naissance') <span class="field-error">{{ $message }}</span> @enderror
+            </div>
 
-        <button type="submit">Créer</button>
-    </form>
+            <button type="submit" class="btn-submit">Créer</button>
+        </form>
+    </div>
 @endsection
